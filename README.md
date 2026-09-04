@@ -55,7 +55,7 @@ deeptrace/
 
 ```bash
 git clone https://github.com/tavishh/Deeptrace_AI_Video_Detection.git
-cd CS5330_SU26_DeepTrace_AI_Detection
+cd DeepTrace_AI_Video_Detection
 pip install -r requirements.txt
 ```
 
