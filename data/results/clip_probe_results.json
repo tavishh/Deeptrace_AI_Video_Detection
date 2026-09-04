@@ -1,0 +1,23 @@
+{
+  "model": "Ojha et al. CLIP Linear Probe (ViT-B/32)",
+  "in_dist_ai_generated": {
+    "auc": 1.0,
+    "acc": 0.973
+  },
+  "cross_train_ai_test_faceswap": {
+    "auc": 0.437,
+    "acc": 0.5965
+  },
+  "cross_train_faceswap_test_ai": {
+    "auc": 0.5409,
+    "acc": 0.5405
+  },
+  "joint_test_deeptrace": {
+    "auc": 0.9766,
+    "acc": 0.9189
+  },
+  "joint_test_celebdf": {
+    "auc": 0.9536,
+    "acc": 0.9421
+  }
+}

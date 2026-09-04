@@ -1,0 +1,70 @@
+# DeepTrace - Training Configuration
+
+# Paths
+paths:
+  data_root: "data/processed"
+  celebdf_root: "data/celebdf"
+  deeptrace_gv_manifest: "data/manifests/deeptrace_gv.csv"
+  checkpoint_dir: "models/checkpoints"
+  onnx_dir: "models/onnx"
+
+# Model
+model:
+  clip_model: "ViT-B-32"
+  clip_pretrained: "openai"
+  clip_frozen: true
+  mlp_hidden_dim: 128
+  mlp_dropout: 0.3
+  num_classes: 2
+
+# Training
+training:
+  epochs: 20
+  batch_size: 32
+  learning_rate: 1.0e-4
+  weight_decay: 1.0e-4
+  optimizer: "adamw"
+  scheduler: "cosine"
+  early_stopping_patience: 5
+  early_stopping_metric: "val_auc"
+  seed: 42
+
+# Data
+data:
+  frame_sample_rate: 1          # FPS for frame extraction
+  frames_per_clip: 5            # Frames sampled per clip at inference
+  image_size: 224
+  train_split: 0.70
+  val_split: 0.15
+  test_split: 0.15
+  clip_aggregation: "mean"      # mean | majority_vote
+
+# Augmentation
+augmentation:
+  horizontal_flip: true
+  random_crop: true
+  jpeg_compression: true
+  jpeg_quality_range: [70, 95]
+
+# Re-encoding (preprocessing)
+reencode:
+  codec: "libx264"
+  crf: 23
+  resolution: "720p"
+
+# LOGO evaluation
+logo:
+  generators: ["sora", "kling", "veo"]
+  rounds:
+    - held_out: "sora"
+      train_on: ["kling", "veo"]
+    - held_out: "kling"
+      train_on: ["sora", "veo"]
+    - held_out: "veo"
+      train_on: ["sora", "kling"]
+
+# WandB
+wandb:
+  project: "deeptrace"
+  entity: null    # set to your wandb username
+  tags: ["clip", "mlp", "deepfake", "logo"]

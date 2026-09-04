@@ -1,0 +1,10 @@
+{
+  "model": "DeepTrace joint variant (CLIP ViT-B/32 + MLP head)",
+  "hardware": "T4 GPU (CLIP) + CPU (ONNX MLP)",
+  "frames_per_clip": 5,
+  "n_clips_tested": 100,
+  "mean_latency_ms": 14.17,
+  "std_latency_ms": 2.26,
+  "throughput_fps": 352.8,
+  "sub_second_pass": true
+}

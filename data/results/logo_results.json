@@ -1,0 +1,36 @@
+{
+  "model": "DeepTrace joint variant (CLIP ViT-B/32 + MLP head)",
+  "evaluation": "LOGO - Leave One Generator Out",
+  "protocol": "Train on joint mode (DeepTrace-GV + Celeb-DF v2) excluding held-out generator. Test on held-out generator fake clips + real test clips.",
+  "rounds": {
+    "sora": {
+      "train_on": ["kling", "veo", "real", "faceswap"],
+      "test_clips": 24,
+      "fake_clips": 5,
+      "real_clips": 19,
+      "auc": 1.0000,
+      "accuracy": 1.0000
+    },
+    "kling": {
+      "train_on": ["sora", "veo", "real", "faceswap"],
+      "test_clips": 26,
+      "fake_clips": 7,
+      "real_clips": 19,
+      "auc": 0.9850,
+      "accuracy": 0.8846
+    },
+    "veo": {
+      "train_on": ["sora", "kling", "real", "faceswap"],
+      "test_clips": 25,
+      "fake_clips": 6,
+      "real_clips": 19,
+      "auc": 0.9386,
+      "accuracy": 0.8800
+    }
+  },
+  "summary": {
+    "mean_auc": 0.9745,
+    "std_auc": 0.0261,
+    "note": "Test sets are 24-26 clips per round. Results are exploratory, not statistically robust. Veo is consistently the hardest generator to detect."
+  }
+}
