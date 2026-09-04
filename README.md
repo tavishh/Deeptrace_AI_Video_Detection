@@ -25,6 +25,12 @@ Kling, Veo). We:
    evaluated under a leave-one-generator-out (LOGO) protocol.
 5. Ship a **Gradio demo** with 16.5ms per-clip inference on T4 GPU.
 
+
+## Demo (Screenshots)
+<img width="1233" height="915" alt="deeptrace_1" src="https://github.com/user-attachments/assets/58e8ed49-2b66-4d15-9451-acce7bbc45af" />
+<img width="1226" height="616" alt="deeptrace_2" src="https://github.com/user-attachments/assets/20cb5408-2123-4bf2-aa01-114ecbf21b8c" />
+
+
 ---
 
 ## Repository Structure
